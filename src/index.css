@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens do tema CMD (preto e branco, minimalista).
+ * Cada variável `--color-*` vira utilitário do Tailwind:
+ *   --color-term-bright  ->  text-term-bright, bg-term-bright, border-term-bright...
+ *
+ * Paleta baseada no esquema padrão do CMD/Windows Terminal ("Campbell").
+ */
+@theme {
+  --font-mono: 'Cascadia Mono Variable', 'Cascadia Mono', Consolas, ui-monospace, monospace;
+
+  /* Superfícies */
+  --color-term-bg: #000000;
+  --color-term-surface: #0c0c0c;
+  --color-term-surface-raised: #161616;
+
+  /* Bordas */
+  --color-term-border: #262626;
+  --color-term-border-strong: #4a4a4a;
+
+  /* Texto */
+  --color-term-bright: #f2f2f2;
+  --color-term-text: #cccccc;
+  --color-term-muted: #9a9a9a;
+  --color-term-dim: #767676;
+
+  --animate-blink: blink 1.1s step-end infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+@layer base {
+  /* Altura do menu fixo: no celular ele quebra em duas linhas. */
+  :root {
+    --header-height: 4.5rem;
+
+    @media (width >= 40rem) {
+      --header-height: 3.25rem;
+    }
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    /* Âncoras não ficam escondidas atrás do menu fixo. */
+    scroll-padding-top: var(--header-height);
+  }
+
+  body {
+    @apply bg-term-bg font-mono text-term-text antialiased;
+  }
+
+  /* Seleção invertida, como no CMD. */
+  ::selection {
+    @apply bg-term-bright text-term-bg;
+  }
+
+  :focus-visible {
+    @apply outline-1 outline-offset-2 outline-term-bright;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

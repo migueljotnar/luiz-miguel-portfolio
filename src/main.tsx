@@ -1,0 +1,17 @@
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import '@fontsource-variable/cascadia-mono';
+import './index.css';
+import { App } from './App';
+
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Elemento #root não encontrado em index.html.');
+}
+
+createRoot(rootElement).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);

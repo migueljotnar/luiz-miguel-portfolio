@@ -1,8 +1,8 @@
 import { portfolioData } from '../../data/portfolioData';
 import { useActiveSection } from '../../hooks/useActiveSection';
+import { SECTION_IDS } from '../../lib/sections';
 
 const { sections } = portfolioData;
-const SECTION_IDS = sections.map((section) => section.id);
 
 /** Menu superior centralizado, fixo no topo, com destaque da seção atual. */
 export function Header() {

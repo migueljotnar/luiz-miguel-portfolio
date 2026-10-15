@@ -116,12 +116,20 @@ export interface AboutContent {
  * Para adicionar uma tecnologia nova:
  *   1. inclua o id aqui;
  *   2. inclua o objeto correspondente em `portfolioData.technologies`;
- *   3. (Task 4) registre o ícone em `TechIcon`.
+ *   3. registre o ícone em `TECH_ICONS` (`src/components/ui/TechIcon.tsx`).
  * O compilador aponta qualquer etapa esquecida.
  */
-export type TechnologyId = 'javascript' | 'typescript' | 'tailwind' | 'react' | 'nextjs';
+export type TechnologyId =
+  | 'javascript'
+  | 'typescript'
+  | 'tailwind'
+  | 'react'
+  | 'nextjs'
+  | 'sql'
+  | 'docker'
+  | 'git';
 
-export type TechnologyCategory = 'linguagem' | 'framework' | 'biblioteca' | 'estilização';
+export type TechnologyCategory = 'linguagem' | 'framework' | 'biblioteca' | 'estilização' | 'ferramenta';
 
 export interface Technology {
   id: TechnologyId;

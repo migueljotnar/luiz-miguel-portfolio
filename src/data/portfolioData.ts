@@ -151,6 +151,29 @@ export const portfolioData: PortfolioData = {
       description:
         'Aplicações React full-stack com roteamento baseado em arquivos, renderização no servidor (SSR/SSG) e otimizações de performance e SEO.',
     },
+    {
+      id: 'sql',
+      name: 'SQL',
+      packageName: 'sql',
+      category: 'linguagem',
+      description:
+        'Modelagem de bancos de dados relacionais, normalização e consultas com JOINs, agregações e filtros para extrair exatamente os dados de que a aplicação precisa.',
+    },
+    {
+      id: 'docker',
+      name: 'Docker',
+      packageName: 'docker',
+      category: 'ferramenta',
+      description:
+        'Ambientes de desenvolvimento reproduzíveis com containers, Dockerfile e Docker Compose para subir aplicação e banco de dados com um único comando.',
+    },
+    {
+      id: 'git',
+      name: 'Git',
+      packageName: 'git',
+      category: 'ferramenta',
+      description: 'Versionamento de código com commits atômicos, branches por funcionalidade e histórico legível.',
+    },
   ],
 
   /* ---------------------------------------------------------------------- */

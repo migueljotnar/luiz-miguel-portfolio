@@ -1,6 +1,9 @@
 import { portfolioData } from '../data/portfolioData';
 import type { SectionId, SectionMeta } from '../types/portfolio';
 
+/** Ids de todas as seções, na ordem do menu. */
+export const SECTION_IDS: readonly SectionId[] = portfolioData.sections.map((section) => section.id);
+
 /** Busca os metadados de uma seção; falha cedo se ela não estiver cadastrada. */
 export function getSectionMeta(id: SectionId): SectionMeta {
   const section = portfolioData.sections.find((item) => item.id === id);

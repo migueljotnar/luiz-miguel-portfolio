@@ -1,20 +1,23 @@
-import { portfolioData } from './data/portfolioData';
+import { useState } from 'react';
+import { Footer } from './components/layout/Footer';
 import { Header } from './components/layout/Header';
-import { Section } from './components/layout/Section';
-import { SectionTitle } from './components/layout/SectionTitle';
 import { AboutSection } from './components/sections/AboutSection';
+import { ContactSection } from './components/sections/ContactSection';
 import { HeroSection } from './components/sections/HeroSection';
+import { ProjectsSection } from './components/sections/ProjectsSection';
 import { TechnologiesSection } from './components/sections/TechnologiesSection';
-import { StatusTag } from './components/terminal/StatusTag';
-import { TerminalPrompt } from './components/terminal/TerminalPrompt';
 import { useInitialHashScroll } from './hooks/useInitialHashScroll';
-import type { SectionId } from './types/portfolio';
-
-/** TEMPORÁRIO: seções já implementadas; as demais aparecem como esqueleto. */
-const IMPLEMENTED: ReadonlySet<SectionId> = new Set(['inicio', 'sobre', 'tecnologias']);
+import type { TechnologyId } from './types/portfolio';
 
 export function App() {
   useInitialHashScroll();
+  // Filtro de projetos compartilhado: TECNOLOGIAS pode abrir PROJETOS já filtrado.
+  const [projectFilter, setProjectFilter] = useState<TechnologyId | null>(null);
+
+  function showProjectsWith(id: TechnologyId) {
+    setProjectFilter(id);
+    document.getElementById('projetos')?.scrollIntoView();
+  }
 
   return (
     <>
@@ -22,21 +25,11 @@ export function App() {
       <main>
         <HeroSection />
         <AboutSection />
-        <TechnologiesSection />
-
-        {/* TEMPORÁRIO: esqueletos das seções das Tasks 5 e 6, para validar a navegação. */}
-        {portfolioData.sections
-          .filter((section) => !IMPLEMENTED.has(section.id))
-          .map((section) => (
-            <Section key={section.id} id={section.id} className="min-h-[60vh] border-t border-term-border">
-              <SectionTitle section={section} />
-              <TerminalPrompt command={section.command} />
-              <p className="text-sm text-term-dim">
-                <StatusTag status="info" /> em construção
-              </p>
-            </Section>
-          ))}
+        <TechnologiesSection onShowProjects={showProjectsWith} />
+        <ProjectsSection filter={projectFilter} onFilterChange={setProjectFilter} />
+        <ContactSection />
       </main>
+      <Footer />
     </>
   );
 }

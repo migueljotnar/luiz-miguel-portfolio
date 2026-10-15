@@ -124,7 +124,9 @@ export type TechnologyId =
   | 'typescript'
   | 'tailwind'
   | 'react'
+  | 'react-router'
   | 'nextjs'
+  | 'vite'
   | 'sql'
   | 'docker'
   | 'git';
@@ -178,6 +180,15 @@ export interface Contact {
 }
 
 /* -------------------------------------------------------------------------- */
+/*  Rodapé                                                                    */
+/* -------------------------------------------------------------------------- */
+
+export interface FooterContent {
+  /** Título exibido abaixo do nome, ex.: "Desenvolvedor". */
+  title: string;
+}
+
+/* -------------------------------------------------------------------------- */
 /*  Raiz                                                                      */
 /* -------------------------------------------------------------------------- */
 
@@ -190,4 +201,5 @@ export interface PortfolioData {
   technologies: Technology[];
   projects: Project[];
   contacts: Contact[];
+  footer: FooterContent;
 }

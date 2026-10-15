@@ -5,15 +5,18 @@ import type { Technology } from '../../types/portfolio';
 import { StatusTag } from '../terminal/StatusTag';
 import { TerminalContainer } from '../terminal/TerminalContainer';
 import { TerminalPrompt } from '../terminal/TerminalPrompt';
+import { PILL_BASE, PILL_OUTLINE } from '../ui/pill';
 
 interface TechInspectorProps {
   id: string;
   technology: Technology;
   ref?: Ref<HTMLDivElement>;
+  /** Abre a seção PROJETOS filtrada por esta tecnologia. */
+  onShowProjects: () => void;
 }
 
 /** Painel que "abre o arquivo" da tecnologia selecionada: detalhes de uso e projetos vinculados. */
-export function TechInspector({ id, technology, ref }: TechInspectorProps) {
+export function TechInspector({ id, technology, ref, onShowProjects }: TechInspectorProps) {
   const projects = getProjectsByTechnology(technology.id);
 
   return (
@@ -50,6 +53,13 @@ export function TechInspector({ id, technology, ref }: TechInspectorProps) {
                       </li>
                     ))}
                   </ul>
+                  <button
+                    type="button"
+                    onClick={onShowProjects}
+                    className={`${PILL_BASE} ${PILL_OUTLINE} mt-1 self-start`}
+                  >
+                    ver em PROJETOS →
+                  </button>
                 </div>
               )}
             </Field>

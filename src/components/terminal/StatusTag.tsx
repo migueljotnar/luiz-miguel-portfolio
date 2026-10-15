@@ -1,10 +1,8 @@
-type Status = 'ok' | 'info' | 'error';
+type Status = 'ok' | 'info';
 
 const STATUS_STYLES: Record<Status, { label: string; className: string }> = {
   ok: { label: 'OK', className: 'text-term-bright' },
   info: { label: 'INFO', className: 'text-term-muted' },
-  // Sem cores no tema: o erro usa vídeo invertido, como alertas de console.
-  error: { label: 'ERRO', className: 'bg-term-bright px-1 text-term-bg' },
 };
 
 interface StatusTagProps {

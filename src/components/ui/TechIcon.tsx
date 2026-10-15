@@ -1,11 +1,17 @@
-import { siDocker, siGit, siJavascript, siNextdotjs, siReact, siTailwindcss, siTypescript } from 'simple-icons';
+import {
+  siDocker,
+  siGit,
+  siJavascript,
+  siNextdotjs,
+  siReact,
+  siReactrouter,
+  siTailwindcss,
+  siTypescript,
+  siVite,
+} from 'simple-icons';
 import type { TechnologyId } from '../../types/portfolio';
-
-/** Só o desenho importa: cobre os ícones do `simple-icons` e os desenhados aqui. */
-interface IconShape {
-  /** Caminho SVG em uma área de 24x24. */
-  path: string;
-}
+import { SvgIcon } from './SvgIcon';
+import type { IconShape } from './SvgIcon';
 
 /** Banco de dados genérico (cilindro em 3 faixas): o `simple-icons` não tem um ícone de "SQL". */
 const DATABASE_ICON: IconShape = {
@@ -23,7 +29,9 @@ const TECH_ICONS: Record<TechnologyId, IconShape> = {
   typescript: siTypescript,
   tailwind: siTailwindcss,
   react: siReact,
+  'react-router': siReactrouter,
   nextjs: siNextdotjs,
+  vite: siVite,
   sql: DATABASE_ICON,
   docker: siDocker,
   git: siGit,
@@ -34,11 +42,6 @@ interface TechIconProps {
   className?: string;
 }
 
-/** Ícone monocromático: herda a cor do texto (`currentColor`). Decorativo. */
-export function TechIcon({ id, className = '' }: TechIconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
-      <path d={TECH_ICONS[id].path} />
-    </svg>
-  );
+export function TechIcon({ id, className }: TechIconProps) {
+  return <SvgIcon icon={TECH_ICONS[id]} className={className} />;
 }

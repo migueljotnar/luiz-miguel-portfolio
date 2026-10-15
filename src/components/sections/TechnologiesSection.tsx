@@ -31,8 +31,13 @@ function revealIfHidden(element: HTMLElement | null) {
   }
 }
 
+interface TechnologiesSectionProps {
+  /** Leva à seção PROJETOS filtrada pela tecnologia. */
+  onShowProjects: (id: TechnologyId) => void;
+}
+
 /** Seção TECNOLOGIAS: grade de "módulos instalados" e painel de inspeção do módulo selecionado. */
-export function TechnologiesSection() {
+export function TechnologiesSection({ onShowProjects }: TechnologiesSectionProps) {
   const { technologies } = portfolioData;
   const [selectedId, setSelectedId] = useState<TechnologyId | undefined>(technologies[0]?.id);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -82,7 +87,14 @@ export function TechnologiesSection() {
         {technologies.length} módulo(s) instalado(s) · selecione um para inspecionar
       </p>
 
-      {selected && <TechInspector ref={inspectorRef} id={INSPECTOR_ID} technology={selected} />}
+      {selected && (
+        <TechInspector
+          ref={inspectorRef}
+          id={INSPECTOR_ID}
+          technology={selected}
+          onShowProjects={() => onShowProjects(selected.id)}
+        />
+      )}
 
       <FloatingButton visible={showBackButton} onClick={handleBack}>
         <span aria-hidden="true">↑ </span>voltar aos módulos

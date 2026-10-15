@@ -144,12 +144,28 @@ export const portfolioData: PortfolioData = {
         'Interfaces componentizadas e reutilizáveis, gerenciamento de estado com hooks e renderização orientada a dados.',
     },
     {
+      id: 'react-router',
+      name: 'React Router',
+      packageName: 'react-router-dom',
+      category: 'biblioteca',
+      description:
+        'Navegação entre páginas em aplicações React sem recarregar o site, com rotas dinâmicas por parâmetro, redirecionamentos e rolagem até âncoras.',
+    },
+    {
       id: 'nextjs',
       name: 'Next.js',
       packageName: 'next',
       category: 'framework',
       description:
         'Aplicações React full-stack com roteamento baseado em arquivos, renderização no servidor (SSR/SSG) e otimizações de performance e SEO.',
+    },
+    {
+      id: 'vite',
+      name: 'Vite',
+      packageName: 'vite',
+      category: 'ferramenta',
+      description:
+        'Ambiente de desenvolvimento com recarregamento instantâneo e build de produção otimizado, com divisão de código e assets minificados para deploy.',
     },
     {
       id: 'sql',
@@ -187,7 +203,16 @@ export const portfolioData: PortfolioData = {
   //   technologyIds: ['react', 'typescript', 'tailwind'],
   //   links: { repository: 'https://github.com/...', deploy: 'https://...' },
   // },
-  projects: [],
+  projects: [
+    {
+      id: 'jmkt',
+      title: 'Jessyane Soares · Portfólio de Marketing',
+      description:
+        'Site-catálogo para uma profissional de marketing apresentar seus serviços e a qualidade das entregas. O cliente navega pelos pacotes, seleciona os de interesse e recebe um pedido de orçamento já estruturado para enviar pelo WhatsApp.',
+      technologyIds: ['react', 'typescript', 'tailwind', 'react-router', 'vite'],
+      links: { repository: 'https://github.com/migueljotnar/jmkt', deploy: 'https://jmkt-ten.vercel.app/' },
+    },
+  ],
 
   /* ---------------------------------------------------------------------- */
   /*  Contatos                                                              */
@@ -212,4 +237,11 @@ export const portfolioData: PortfolioData = {
       url: 'https://www.instagram.com/migueljotnar/',
     },
   ],
+
+  /* ---------------------------------------------------------------------- */
+  /*  Rodapé: nome completo (vem do perfil) e o título abaixo dele          */
+  /* ---------------------------------------------------------------------- */
+  footer: {
+    title: 'Desenvolvedor',
+  },
 };

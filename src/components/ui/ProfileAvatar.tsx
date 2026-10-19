@@ -23,7 +23,7 @@ export function ProfileAvatar({ photo, name }: ProfileAvatarProps) {
     <div className="rounded-full border border-term-border-strong p-1.5">
       {showImage ? (
         <img
-          src={photo.src}
+          src={`${import.meta.env.BASE_URL}${photo.src}`}
           alt={photo.alt}
           width={160}
           height={160}

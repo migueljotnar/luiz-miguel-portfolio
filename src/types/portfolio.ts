@@ -70,7 +70,8 @@ export interface Education {
 
 export interface ProfilePhoto {
   /**
-   * Caminho da imagem dentro de `public/` (ex.: "/profile.webp").
+   * Caminho da imagem dentro de `public/`, sem barra inicial (ex.: "profile.webp").
+   * O prefixo do deploy (`base` do Vite) é adicionado pelo componente.
    * Quando ausente, a interface mostra um avatar de terminal com as iniciais.
    */
   src?: string;

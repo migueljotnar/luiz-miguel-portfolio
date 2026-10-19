@@ -60,7 +60,7 @@ export const portfolioData: PortfolioData = {
       'Desenvolvedor web formado em Análise e Desenvolvimento de Sistemas, focado em interfaces modernas com React, Next.js e TypeScript. Construo aplicações com tipagem estática, componentes reutilizáveis e código organizado para ser fácil de manter.',
     photo: {
       // Gerada por `npm run optimize:photo` a partir de `media/profile-original.jpg`.
-      src: '/profile.webp',
+      src: 'profile.webp',
       alt: 'Foto de perfil de Luiz Miguel Raydan Mota Dantas',
     },
   },
